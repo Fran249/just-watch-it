@@ -1,0 +1,43 @@
+---
+
+import Watches from "../components/watches.astro";
+import Layout from "../layouts/Layout.astro";
+const relojes = [
+    {
+        title: 'Nuevo reloj',
+        href: 'nuevo-reloj',
+        img: 'https://picsum.photos/200/300/?blur',
+        descripcion: 'lorem lorem lorem lorem lorem',
+        id: '1'
+    },
+    {
+        title: 'Nuevo reloj',
+        href: 'nuevo-reloj',
+        img: 'https://picsum.photos/200/300/?blur',
+        descripcion: 'lorem lorem lorem lorem lorem',
+        id: '2'
+    },
+    {
+        title: 'Nuevo reloj',
+        href: 'nuevo-reloj',
+        img: 'https://picsum.photos/200/300/?blur',
+        descripcion: 'lorem lorem lorem lorem lorem',
+        id: '3'
+    },
+    {
+        title: 'Nuevo reloj',
+        href: 'nuevo-reloj',
+        img: 'https://picsum.photos/200/300/?blur',
+        descripcion: 'lorem lorem lorem lorem lorem',
+        id: '4'
+    },
+]
+---
+
+<Layout title="Just WATCH It ">
+
+    <div class="flex flex-row flex-wrap justify-center items-center w-screen sm:h-max md:h-screen" transition:animate="slide">
+        <Watches items={relojes} />
+    </div>
+
+</Layout>

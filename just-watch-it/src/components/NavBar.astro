@@ -1,0 +1,44 @@
+---
+const buttons = [
+  {
+    title: "Home",
+    href: "/",
+  },
+  {
+    title: "About Us",
+    href: "/about-us",
+  },
+  {
+    title: "Products",
+    href: "/products",
+  },
+];
+---
+
+<nav
+  class="w-full flex justify-between align-center p-5 sm:justify-between fixed z-10 md:justify-end md:gap-24"
+  transition:animate="none"
+>
+  {
+    buttons.map((item) => {
+      return (
+        <a
+          href={item.href}
+          class=" text-white decoration-none text-lg"
+        >
+          {item.title}
+        </a>
+      );
+    })
+  }
+</nav>
+
+<style>
+  @font-face {
+    font-family: "just-do-it";
+    src: url(just-do-it-font.otf);
+  }
+  a{
+    font-family: 'just-do-it';
+  }
+</style>
