@@ -1,10 +1,44 @@
 ---
-import Intro from "../components/Intro.astro";
+
 import Layout from "../layouts/Layout.astro";
+import Section from "../components/section.astro";
+
+const aboutUsParagraph = [
+    {
+        text: "Welcome to Just Watch it, where elegance and style come together in every minute of your life! We are much more than just a watch store, we are afashion statement, a celebration of time, and a tribute to the boldness ofliving every second in style. Why just do it when you can simply watch it in style ?",
+    },
+]
+  
+const introParagraph =[ {
+    text:  "Because who needs Just Do It when you can Just Watch the Time ? Our timepieces celebrate the irony of time, reminding you to savor life's moments."
+}]
 ---
 
 <Layout title="Just WATCH It ">
-
-    <Intro />
-
+  <main class="snap-y snap-mandatory relative w-full h-screen overflow-auto">
+    <div class="snap-center">
+      <Section id="intro" title="Just Watch It" paragraph={introParagraph}>
+        <video src="watch-video.mp4" muted autoplay loop slot="background-slot"
+        ></video>
+      </Section>
+    </div>
+    <div class="snap-center">
+      <Section id="about-us" title="About Us" paragraph={aboutUsParagraph}>
+        <video
+          src="about-us-video.mp4"
+          muted
+          autoplay
+          loop
+          slot="background-slot"></video>
+      </Section>
+    </div>
+  </main>
 </Layout>
+
+<style>
+  video {
+    width: 100%;
+    height: 100% !important;
+    object-fit: cover;
+  }
+</style>

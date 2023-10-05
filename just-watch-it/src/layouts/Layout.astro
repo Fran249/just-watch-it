@@ -14,35 +14,25 @@ const { title } = Astro.props;
     <meta charset="UTF-8" />
     <meta name="description" content="Astro description" />
     <meta name="viewport" content="width=device-width" />
-	
+
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <ViewTransitions />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
-  <body class="bg-stone-100" >
-
+  <body >
     <NavBar />
-	<video
-	src="watch-video.mp4"
-	width="100%"
-	height="100%"
-	muted
-	autoplay
-	loop
-	transition:persist
-	class="absolute"></video>
-    <main class="backdrop-blur-sm bg-gradient-to-br from-transparent to-stone-950 h-full md:w-screen sm:w-full lg:w-screen">
 
-      <slot />
-    </main>
+    <slot />
   </body>
 </html>
 
-<style>
-	  video {
-    width: 100%;
-    height: 100% !important;
-    object-fit: cover;
-  }
+
+
+<style is:global>
+
+*{
+  scroll-behavior: smooth;
+}
+
 </style>
