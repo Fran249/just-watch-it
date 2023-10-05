@@ -1,0 +1,15 @@
+---
+import NavBar from "../components/NavBar.astro";
+import Layout from "../layouts/Layout.astro";
+import Products from "../components/products.vue"
+import watches from '../data/watches.json'
+import LikeIcon from "../assets/like-icon.astro";
+
+---
+
+<Layout title="Just WATCH It ">
+    <NavBar color="black" fixed={false}/>
+    <Products client:visible data={watches}>
+        <LikeIcon/>
+    </Products>
+</Layout>

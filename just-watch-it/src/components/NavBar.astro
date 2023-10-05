@@ -1,30 +1,41 @@
 ---
+import Logo from "../assets/logo.astro";
+interface Props {
+  color: string;
+  fixed: boolean;
+}
 const buttons = [
   {
     title: "Home",
-    href: "/",
+    href: "#intro",
   },
   {
     title: "About Us",
     href: "#about-us",
   },
   {
-    title: "Products",
-    href: "/products",
+    title: "Store",
+    href: "/store",
   },
 ];
+const {color,fixed} = Astro.props
 ---
 
 <nav
-  class="w-full flex justify-between align-center p-5 sm:justify-between fixed z-30 md:justify-end md:gap-24 px-24"
+  class=`w-full flex justify-between align-center py-5 ${fixed ? 'fixed' : 'absolute'} z-30 gap-5 sm:py-3 md:justify-end md:gap-24 px-10 sm:mr-10`
   transition:animate="none"
 >
+<div class="grow">
+  <a href="/" >
+    <Logo color={color}/>
+  </a>
+</div>
   {
     buttons.map((item) => {
       return (
         <a
           href={item.href}
-          class=" text-white decoration-none text-lg"
+          class={`text-${color} decoration-none text-lg`}
         >
           {item.title}
         </a>
