@@ -1,74 +1,112 @@
-
-
 [
-    {
-      "name": "Watch Model 1",
-      "brand": "Brand 1",
-      "price": 100,
-      "likes": 50,
-      "image": "https://picsum.photos/500/300?grayscale"
-    },
-    {
-      "name": "Watch Model 2",
-      "brand": "Brand 2",
-      "price": 200,
-      "likes": 30,
-      "image": "https://picsum.photos/500/300?grayscale"
-    },
-    {
-      "name": "Watch Model 3",
-      "brand": "Brand 3",
-      "price": 150,
-      "likes": 20,
-      "image": "https://picsum.photos/500/300?grayscale"
-    },
-    {
-      "name": "Watch Model 4",
-      "brand": "Brand 4",
-      "price": 180,
-      "likes": 40,
-      "image": "https://picsum.photos/500/300?grayscale"
-    },
-    {
-      "name": "Watch Model 5",
-      "brand": "Brand 5",
-      "price": 250,
-      "likes": 60,
-      "image": "https://picsum.photos/500/300?grayscale"
-    },
-    {
-      "name": "Watch Model 6",
-      "brand": "Brand 6",
-      "price": 300,
-      "likes": 70,
-      "image": "https://picsum.photos/500/300?grayscale"
-    },
-    {
-      "name": "Watch Model 7",
-      "brand": "Brand 7",
-      "price": 350,
-      "likes": 80,
-      "image": "https://picsum.photos/500/300?grayscale"
-    },
-    {
-      "name": "Watch Model 8",
-      "brand": "Brand 8",
-      "price": 400,
-      "likes": 90,
-      "image": "https://picsum.photos/500/300?grayscale"
-    },
-    {
-      "name": "Watch Model 9",
-      "brand": "Brand 9",
-      "price": 450,
-      "likes": 100,
-      "image": "https://picsum.photos/500/300?grayscale"
-    },
-    {
-      "name": "Watch Model 10",
-      "brand": "Brand 10",
-      "price": 500,
-      "likes": 120,
-      "image": "https://picsum.photos/500/300?grayscale"
-    }
-  ]
+  {
+    "name": "Watch1",
+    "brand": "Brand1",
+    "price": 100,
+    "image": "image1.png",
+    "description": "Description1",
+    "quantity": 0,
+    "stock": 10,
+    "likes": 5,
+    "id": 1
+  },
+  {
+    "name": "Watch2",
+    "brand": "Brand2",
+    "price": 150,
+    "image": "image2.png",
+    "description": "Description2",
+    "quantity": 0,
+    "stock": 5,
+    "likes": 10,
+    "id": 2
+  },
+  {
+    "name": "Watch3",
+    "brand": "Brand3",
+    "price": 200,
+    "image": "image3.png",
+    "description": "Description3",
+    "quantity": 0,
+    "stock": 2,
+    "likes": 8,
+    "id": 3
+  },
+  {
+    "name": "Watch4",
+    "brand": "Brand4",
+    "price": 120,
+    "image": "image4.png",
+    "description": "Description4",
+    "quantity": 0,
+    "stock": 7,
+    "likes": 3,
+    "id": 4
+  },
+  {
+    "name": "Watch5",
+    "brand": "Brand5",
+    "price": 180,
+    "image": "image5.png",
+    "description": "Description5",
+    "quantity": 0,
+    "stock": 3,
+    "likes": 12,
+    "id": 5
+  },
+  {
+    "name": "Watch6",
+    "brand": "Brand6",
+    "price": 90,
+    "image": "image6.png",
+    "description": "Description6",
+    "quantity": 0,
+    "stock": 4,
+    "likes": 7,
+    "id": 6
+  },
+  {
+    "name": "Watch7",
+    "brand": "Brand7",
+    "price": 250,
+    "image": "image7.png",
+    "description": "Description7",
+    "quantity": 0,
+    "stock": 1,
+    "likes": 15,
+    "id": 7
+  },
+  {
+    "name": "Watch8",
+    "brand": "Brand8",
+    "price": 160,
+    "image": "image8.png",
+    "description": "Description8",
+    "quantity": 0,
+    "stock": 8,
+    "likes": 6,
+    "id": 8
+  },
+  {
+    "name": "Watch9",
+    "brand": "Brand9",
+    "price": 140,
+    "image": "image9.png",
+    "description": "Description9",
+    "quantity": 0,
+    "stock": 6,
+    "likes": 9,
+    "id": 9
+  },
+  {
+    "name": "Watch10",
+    "brand": "Brand10",
+    "price": 220,
+    "image": "image10.png",
+    "description": "Description10",
+    "quantity": 0,
+    "stock": 9,
+    "likes": 4,
+    "id": 10
+  }
+]

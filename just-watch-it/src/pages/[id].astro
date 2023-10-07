@@ -1,0 +1,53 @@
+---
+import type { GetStaticPaths } from "astro";
+import watches from "../data/watches.json";
+import Layout from "../layouts/Layout.astro";
+import BackIcon from "../assets/back-icon.astro";
+import PlusIcon from "../assets/plus-icon.astro"
+import MinusIcon from "../assets/minus-icon.astro"
+import Checking from "../components/checking.vue";
+const { id } = Astro.params;
+
+const watch = watches.find((watch) => watch.id === Number(id));
+
+export const getStaticPaths = (() => {
+  const arrayForIds = watches.map((watch) => ({
+    params: { id: watch.id },
+  }));
+
+  return arrayForIds;
+}) satisfies GetStaticPaths;
+---
+
+<Layout title={`Producto N ${id}`}>
+  <a href="/store"class="absolute top-4 left-4" id="button-back">
+    <BackIcon color="black" />
+  </a>
+  <section class="w-full h-screen flex justify-around items-center flex-wrap sm:h-screen sm:w-screen">
+    <div class=" md:ml-[15%]">
+      <img
+        transition:name={watch.name}
+        class="h-[300px] w-[300px] sm:h-[350px] sm:w-[350px] md:h-[500px] md:w-[600px]"
+        src={watch.image}
+        alt="product image"
+      />
+    </div>
+    <Checking client:visible name={watch.name} brand={watch.brand} description={watch.description} quantity={watch.quantity} price={watch.price}>
+        <PlusIcon color="black" slot="plus-icon"></PlusIcon>
+        <MinusIcon color="black" slot="minus-icon"></MinusIcon>
+    </Checking>
+  </section>
+</Layout>
+
+
+<style>
+  @font-face {
+    font-family: "just-do-it";
+    src: url(just-do-it-font.otf);
+  }
+
+  h3,
+  p {
+    font-family: "just-do-it";
+  }
+</style>
