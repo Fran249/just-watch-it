@@ -15,21 +15,38 @@ const introParagraph = [
     text: "Because who needs Just Do It when you can Just Watch the Time ? Our timepieces celebrate the irony of time, reminding you to savor life's moments.",
   },
 ];
+const buttons = [
+    {
+      title: "Home",
+      href: "#intro",
+    },
+    {
+      title: "About Us",
+      href: "#about-us",
+    },
+    {
+      title: "Store",
+      href: "/store",
+    },
+  ];
 ---
 
 <Layout title="Just WATCH It ">
-  <NavBar color="white" fixed={true} />
+ 
   <main class="snap-y snap-mandatory relative w-full h-screen overflow-auto">
+    
     <div class="snap-center">
       <Section id="intro" title="Just Watch It" paragraph={introParagraph}>
-        <video src="watch-video.mp4" muted autoplay loop slot="background-slot"
+        <NavBar color="white" fixed={true} slot="nav" buttons={buttons}/>
+        <video src="./watch-video.webm" muted autoplay loop slot="background-slot"
         ></video>
       </Section>
     </div>
     <div class="snap-center">
       <Section id="about-us" title="About Us" paragraph={aboutUsParagraph}>
+        
         <video
-          src="about-us-video.mp4"
+          src="./about-us-video.webm"
           muted
           autoplay
           loop

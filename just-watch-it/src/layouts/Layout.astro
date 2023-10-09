@@ -12,26 +12,30 @@ const { title } = Astro.props;
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content="Astro description" />
+    <meta name="description" content="Just watch it" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <ViewTransitions />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
-  <body >
-
-
+  <body>
     <slot />
-  </body>
+  </body><style is:global>
+    * {
+      scroll-behavior: smooth;
+    }
+
+    @font-face {
+      font-family: "just-do-it";
+      src: url(../just-do-it-font.otf);
+    }
+
+    h1 {
+      font-family: "just-do-it";
+    }
+    a {
+      font-family: "just-do-it";
+    }
+  </style>
 </html>
-
-
-
-<style is:global>
-
-*{
-  scroll-behavior: smooth;
-}
-
-</style>

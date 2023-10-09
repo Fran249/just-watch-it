@@ -3,65 +3,31 @@ import Logo from "../assets/logo.astro";
 interface Props {
   color: string;
   fixed: boolean;
+  buttons: Array<any>;
 }
-const buttons = [
-  {
-    title: "Home",
-    href: "#intro",
-  },
-  {
-    title: "About Us",
-    href: "#about-us",
-  },
-  {
-    title: "Store",
-    href: "/store",
-  },
-];
-const {color,fixed} = Astro.props
-let colorLogo = ''
-let colorText = ''
-if(color === "white" ){
-  colorLogo = "white"
-  colorText = "neutral-100"
-}else if(color === "black"){
-  colorLogo = "black"
-  colorText = "neutral-800"
-}
+
+const { color, fixed, buttons } = Astro.props;
 ---
 
 <nav
-  class=`w-full flex justify-between align-center py-5 ${fixed ? 'fixed' : 'absolute'} z-30  sm:py-3 md:justify-between md:gap-24 px-10 `
+  class=`w-full flex justify-between align-center py-5 ${fixed ? 'fixed' : 'absolute'} z-30 top-0 left-0 sm:py-3 md:justify-between md:gap-24 px-10 `
   transition:animate="none"
 >
-<div  >
-  <a href="/" >
-    <Logo color={colorLogo}/>
-  </a>
-</div>
-<div class="flex justify-between items-center  gap-5 md:gap-10">
-  {
-    buttons.map((item) => {
-      return (
-        <a
-          href={item.href}
-          class={`text-${colorText} decoration-none text-lg`}
-        >
-          {item.title}
-        </a>
-      );
-    })
-  }
-</div>
+  <div>
+    <a href="/">
+      <Logo color={color} />
+    </a>
+  </div>
+
+  <div class="flex justify-between items-center gap-5 md:gap-10">
+    {
+      buttons.map((item) => {
+        return (
+          <a href={item.href} class={`text-${color} decoration-none text-lg`}>
+            {item.title}
+          </a>
+        );
+      })
+    }
+  </div>
 </nav>
-
-<style is:global>
-  @font-face {
-    font-family: "just-do-it";
-    src: url(just-do-it-font.otf);
-  }
-  a{
-    font-family: 'just-do-it';
-  }
-
-</style>

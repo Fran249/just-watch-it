@@ -3,9 +3,10 @@ import type { GetStaticPaths } from "astro";
 import watches from "../data/watches.json";
 import Layout from "../layouts/Layout.astro";
 import BackIcon from "../assets/back-icon.astro";
-import PlusIcon from "../assets/plus-icon.astro"
-import MinusIcon from "../assets/minus-icon.astro"
+import PlusIcon from "../assets/plus-icon.astro";
+import MinusIcon from "../assets/minus-icon.astro";
 import Checking from "../components/checking.vue";
+
 const { id } = Astro.params;
 
 const watch = watches.find((watch) => watch.id === Number(id));
@@ -19,26 +20,207 @@ export const getStaticPaths = (() => {
 }) satisfies GetStaticPaths;
 ---
 
+<script>
+  let elements = document.querySelectorAll("[data-menu]");
+  for (let i = 0; i < elements.length; i++) {
+    let main = elements[i];
+    main.addEventListener("click", function () {
+      let element = main.parentElement.parentElement;
+      let andicators = main.querySelectorAll("img");
+      let child = element.querySelector("#sect");
+      child.classList.toggle("hidden");
+      andicators[0].classList.toggle("rotate-180");
+    });
+  }
+</script>
 <Layout title={`Producto N ${id}`}>
-  <a href="/store"class="absolute top-4 left-4" id="button-back">
+  <a href="/store" class="absolute top-4 left-4" id="button-back">
     <BackIcon color="black" />
   </a>
-  <section class="w-full h-screen flex justify-around items-center flex-wrap sm:h-screen sm:w-screen">
-    <div class=" md:ml-[15%]">
-      <img
-        transition:name={watch.name}
-        class="h-[300px] w-[300px] sm:h-[350px] sm:w-[350px] md:h-[500px] md:w-[600px]"
-        src={watch.image}
-        alt="product image"
-      />
+  <section
+    class="w-full h-screen flex justify-around items-center flex-wrap sm:h-screen sm:w-screen"
+  >
+    <div
+      class="md:flex items-start justify-center py-12 2xl:px-20 md:px-6 px-4"
+    >
+      <div class="xl:w-2/6 lg:w-2/5 w-80 md:block hidden">
+        <img
+          transition:name={watch.name}
+          class="w-full"
+          alt="image of a girl posing"
+          src={watch.image}
+        />
+
+      </div>
+      <div class="md:hidden">
+        <img
+          transition:name={watch.name}
+          class="w-full"
+          alt="image of a girl posing"
+          src={watch.image}
+        />
+
+      </div>
+      <div class="xl:w-2/5 md:w-1/2 lg:ml-8 md:ml-6 md:mt-0 mt-6">
+        <div class="border-b border-gray-200 pb-6">
+          <p class="text-sm leading-none text-gray-600 dark:text-gray-300">
+            {watch.brand}
+          </p>
+          <h1
+            class="lg:text-2xl text-xl font-semibold lg:leading-6 leading-7 text-gray-800 dark:text-white mt-2"
+          >
+            {watch.name}
+          </h1>
+        </div>
+        <div
+          class="py-4 border-b border-gray-200 flex items-center justify-between"
+        >
+          <p class="text-base leading-4 text-gray-800 dark:text-gray-300">
+            Colours
+          </p>
+          <div class="flex items-center justify-center">
+            <p class="text-sm leading-none text-gray-600 dark:text-gray-300">
+              Smoke Blue with red accents
+            </p>
+            <div
+              class="w-6 h-6 bg-gradient-to-b from-gray-900 to-indigo-500 ml-3 mr-4 cursor-pointer"
+            >
+            </div>
+            <img
+              class="dark:hidden"
+              src="https://tuk-cdn.s3.amazonaws.com/can-uploader/productDetail3-svg2.svg"
+              alt="next"
+            />
+            <img
+              class="hidden dark:block"
+              src="https://tuk-cdn.s3.amazonaws.com/can-uploader/productDetail3-svg2dark.svg"
+              alt="next"
+            />
+          </div>
+        </div>
+        <div
+          class="py-4 border-b border-gray-200 flex items-center justify-between"
+        >
+          <p class="text-base leading-4 text-gray-800 dark:text-gray-300">
+            Size
+          </p>
+          <div class="flex items-center justify-center">
+            <p
+              class="text-sm leading-none text-gray-600 dark:text-gray-300 mr-3"
+            >
+              38.2
+            </p>
+
+            <img
+              class="dark:hidden"
+              src="https://tuk-cdn.s3.amazonaws.com/can-uploader/productDetail3-svg2.svg"
+              alt="next"
+            />
+            <img
+              class="hidden dark:block"
+              src="https://tuk-cdn.s3.amazonaws.com/can-uploader/productDetail3-svg2dark.svg"
+              alt="next"
+            />
+          </div>
+        </div>
+
+        <div>
+          <p
+            class="xl:pr-48 text-base lg:leading-tight leading-normal text-gray-600 dark:text-gray-300 mt-7"
+          >
+          {watch.description}
+          </p>
+          <p class="text-base leading-4 mt-7 text-gray-600 dark:text-gray-300">
+            Product Code: {watch.id}
+          </p>
+        </div>
+        <div>
+          <div class="border-t border-b py-4 mt-7 border-gray-200">
+            <div
+              data-menu
+              class="flex justify-between items-center cursor-pointer"
+            >
+              <p class="text-base leading-4 text-gray-800 dark:text-gray-300">
+                Shipping and returns
+              </p>
+              <button
+                class="cursor-pointer focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-400 rounded"
+                role="button"
+                aria-label="show or hide"
+              >
+                <img
+                  class="transform dark:hidden"
+                  src="https://tuk-cdn.s3.amazonaws.com/can-uploader/productDetail3-svg4.svg"
+                  alt="dropdown"
+                />
+                <img
+                  class="transform hidden dark:block"
+                  src="https://tuk-cdn.s3.amazonaws.com/can-uploader/productDetail3-svg4dark.svg"
+                  alt="dropdown"
+                />
+              </button>
+            </div>
+            <div
+              class="hidden pt-4 text-base leading-normal pr-12 mt-4 text-gray-600 dark:text-gray-300"
+              id="sect"
+            >
+              You will be responsible for paying for your own shipping costs for
+              returning your item. Shipping costs are nonrefundable
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="border-b py-4 border-gray-200">
+            <div
+              data-menu
+              class="flex justify-between items-center cursor-pointer"
+            >
+              <p class="text-base leading-4 text-gray-800 dark:text-gray-300">
+                Contact us
+              </p>
+              <button
+                class="cursor-pointer focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-400 rounded"
+                role="button"
+                aria-label="show or hide"
+              >
+                <img
+                  class="transform dark:hidden"
+                  src="https://tuk-cdn.s3.amazonaws.com/can-uploader/productDetail3-svg4.svg"
+                  alt="dropdown"
+                />
+                <img
+                  class="transform hidden dark:block"
+                  src="https://tuk-cdn.s3.amazonaws.com/can-uploader/productDetail3-svg4dark.svg"
+                  alt="dropdown"
+                />
+              </button>
+            </div>
+            <div
+              class="hidden pt-4 text-base leading-normal pr-12 mt-4 text-gray-600 dark:text-gray-300"
+              id="sect"
+            >
+              If you have any questions on how to return your item to us,
+              contact us.
+            </div>
+          </div>
+          
+        </div>
+        <Checking
+        client:visible
+        name={watch.name}
+        brand={watch.brand}
+        description={watch.description}
+        quantity={watch.quantity}
+        price={watch.price}
+  
+      >
+        <PlusIcon color="black" slot="plus-icon" />
+        <MinusIcon color="black" slot="minus-icon" />
+      </Checking>
+      </div>
     </div>
-    <Checking client:visible name={watch.name} brand={watch.brand} description={watch.description} quantity={watch.quantity} price={watch.price}>
-        <PlusIcon color="black" slot="plus-icon"></PlusIcon>
-        <MinusIcon color="black" slot="minus-icon"></MinusIcon>
-    </Checking>
   </section>
 </Layout>
-
 
 <style>
   @font-face {

@@ -4,12 +4,23 @@ import Layout from "../layouts/Layout.astro";
 import Products from "../components/products.astro"
 import watches from '../data/watches.json'
 import LikeIcon from "../assets/like-icon.astro";
+const buttons = [
+    {
+      title: "Home",
+      href: "/",
 
+    },
+    {
+      title: "Cart",
+      href: '#'
+    }
+  ];
 ---
 
 <Layout title="Just WATCH It ">
-    <NavBar color="black" fixed={false}/>
+
     <Products data={watches} >
+        <NavBar color="black" fixed={false} slot="nav" buttons={buttons}/>
         <LikeIcon/>
     </Products>
 </Layout>

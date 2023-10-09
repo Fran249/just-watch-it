@@ -8,6 +8,7 @@ const { title, paragraph, id } = Astro.props;
 ---
 
 <section class="h-screen w-full z-20" id={id}>
+  <slot name="nav"></slot>
   <div
     class="h-screen w-full flex flex-col justify-center items-center gap-36 absolute bg-gradient-to-b from-transparent to-neutral-950  z-20"
   >
@@ -39,12 +40,3 @@ const { title, paragraph, id } = Astro.props;
   </div>
 </section>
 
-<style>
-  @font-face {
-    font-family: "just-do-it";
-    src: url(just-do-it-font.otf);
-  }
-  h1 {
-    font-family: "just-do-it";
-  }
-</style>
