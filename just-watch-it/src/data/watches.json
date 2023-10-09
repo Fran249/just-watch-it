@@ -3,7 +3,7 @@
     "name": "Watch1",
     "brand": "Brand1",
     "price": 100,
-    "image": "../image1.png",
+    "image": "./image1.png",
     "description": "Description1",
     "quantity": 0,
     "stock": 10,

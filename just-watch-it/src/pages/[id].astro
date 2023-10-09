@@ -2,9 +2,9 @@
 import type { GetStaticPaths } from "astro";
 import watches from "../data/watches.json";
 import Layout from "../layouts/Layout.astro";
-import BackIcon from "../assets/back-icon.astro";
-import PlusIcon from "../assets/plus-icon.astro";
-import MinusIcon from "../assets/minus-icon.astro";
+import BackIcon from "../components/icon-components/back-icon.astro";
+import PlusIcon from "../components/icon-components/plus-icon.astro";
+import MinusIcon from "../components/icon-components/minus-icon.astro";
 import Checking from "../components/checking.vue";
 
 const { id } = Astro.params;
@@ -47,7 +47,7 @@ export const getStaticPaths = (() => {
         <img
           transition:name={watch.name}
           class="w-full"
-          alt="image of a girl posing"
+          alt="image of a product"
           src={watch.image}
         />
 
@@ -56,7 +56,7 @@ export const getStaticPaths = (() => {
         <img
           transition:name={watch.name}
           class="w-full"
-          alt="image of a girl posing"
+          alt="image of a product"
           src={watch.image}
         />
 
