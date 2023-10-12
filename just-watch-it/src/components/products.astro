@@ -1,6 +1,6 @@
 ---
 interface Props {
-  data: any;
+  data: Array<any>;
 }
 const { data } = Astro.props;
 ---
@@ -33,7 +33,7 @@ const { data } = Astro.props;
             <p class="py-5">{watch.description}</p>
             <div class="flex items-center mt-2.5 mb-5">
               <button>
-                <slot slot="icon" />
+                <slot name="icon" />
               </button>
               <span class="bg-neutral-300 text-black-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded   ml-3">
                 {watch.likes}
